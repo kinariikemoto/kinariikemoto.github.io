@@ -174,17 +174,50 @@ body {
     font-size: 3.5rem;
     font-weight: 900;
     line-height: 1.1;
-    background: linear-gradient(90deg, #ffffff 0%, #50e3c2 20%, #ffffff 40%, #50e3c2 60%, #ffffff 80%, #50e3c2 100%);
+    background-image:
+        radial-gradient(circle at 10% 20%, #50e3c2 0%, transparent 15%),
+        radial-gradient(circle at 25% 45%, #ffffff 0%, transparent 20%),
+        radial-gradient(circle at 45% 15%, #50e3c2 0%, transparent 18%),
+        radial-gradient(circle at 60% 55%, #ffffff 0%, transparent 22%),
+        radial-gradient(circle at 75% 30%, #50e3c2 0%, transparent 16%),
+        radial-gradient(circle at 85% 70%, #ffffff 0%, transparent 19%),
+        radial-gradient(circle at 15% 80%, #50e3c2 0%, transparent 17%),
+        radial-gradient(circle at 40% 90%, #ffffff 0%, transparent 21%),
+        radial-gradient(circle at 70% 85%, #50e3c2 0%, transparent 15%),
+        radial-gradient(circle at 90% 40%, #ffffff 0%, transparent 18%),
+        radial-gradient(circle at 30% 60%, #50e3c2 0%, transparent 20%),
+        radial-gradient(circle at 55% 75%, #ffffff 0%, transparent 16%),
+        radial-gradient(circle at 20% 35%, #50e3c2 0%, transparent 19%),
+        radial-gradient(circle at 65% 10%, #ffffff 0%, transparent 17%),
+        radial-gradient(circle at 80% 60%, #50e3c2 0%, transparent 21%),
+        linear-gradient(135deg, #ffffff 0%, #50e3c2 100%);
+    background-size: 100% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    background-size: 200% 100%;
     letter-spacing: 0.02em;
     text-transform: uppercase;
 }
 
 .teal-text {
-    background: linear-gradient(90deg, #ffffff 0%, #50e3c2 20%, #ffffff 40%, #50e3c2 60%, #ffffff 80%, #50e3c2 100%);
+    background-image:
+        radial-gradient(circle at 10% 20%, #50e3c2 0%, transparent 15%),
+        radial-gradient(circle at 25% 45%, #ffffff 0%, transparent 20%),
+        radial-gradient(circle at 45% 15%, #50e3c2 0%, transparent 18%),
+        radial-gradient(circle at 60% 55%, #ffffff 0%, transparent 22%),
+        radial-gradient(circle at 75% 30%, #50e3c2 0%, transparent 16%),
+        radial-gradient(circle at 85% 70%, #ffffff 0%, transparent 19%),
+        radial-gradient(circle at 15% 80%, #50e3c2 0%, transparent 17%),
+        radial-gradient(circle at 40% 90%, #ffffff 0%, transparent 21%),
+        radial-gradient(circle at 70% 85%, #50e3c2 0%, transparent 15%),
+        radial-gradient(circle at 90% 40%, #ffffff 0%, transparent 18%),
+        radial-gradient(circle at 30% 60%, #50e3c2 0%, transparent 20%),
+        radial-gradient(circle at 55% 75%, #ffffff 0%, transparent 16%),
+        radial-gradient(circle at 20% 35%, #50e3c2 0%, transparent 19%),
+        radial-gradient(circle at 65% 10%, #ffffff 0%, transparent 17%),
+        radial-gradient(circle at 80% 60%, #50e3c2 0%, transparent 21%),
+        linear-gradient(135deg, #ffffff 0%, #50e3c2 100%);
+    background-size: 100% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -260,44 +293,6 @@ body {
     background-color: var(--accent-color);
 }
 
-/* News Section */
-.news-list {
-    list-style: none;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.news-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 0;
-    display: flex;
-    align-items: baseline;
-    gap: 2rem;
-    transition: background-color 0.3s;
-}
-
-.news-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-.news-date {
-    font-family: var(--font-main);
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    min-width: 100px;
-}
-
-.news-link {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s;
-}
-
-.news-link:hover {
-    color: var(--accent-color);
-}
-
 /* Video Section */
 .video-wrapper {
     position: relative;
@@ -320,8 +315,13 @@ body {
 .live-section {
     position: relative;
     overflow: hidden;
-    color: #fff;
-    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.live-section::before {
+    display: none;
 }
 
 .live-bg-container {
@@ -330,81 +330,162 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
 }
 
 .live-bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.4;
-    filter: blur(2px);
+    opacity: 0.6;
 }
 
-.live-info-card {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    padding: 4rem 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: 800px;
+.live-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.live-section .section-title {
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(80, 227, 194, 0.5);
+}
+
+.live-list {
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.live-date {
+.live-item {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    transition: all 0.3s;
+}
+
+.live-item:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: var(--green-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(80, 227, 194, 0.2);
+}
+
+.live-date-large {
     font-family: var(--font-main);
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-.live-name {
+    color: var(--green-accent);
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-weight: 900;
+    line-height: 1;
+    min-width: 200px;
+    flex-shrink: 0;
+    text-shadow: 0 0 10px rgba(80, 227, 194, 0.5);
+}
+
+.live-details {
+    flex: 1;
+    text-align: left;
+}
+
+.live-venue-name {
+    font-family: var(--font-main);
+    font-size: 1.3rem;
     font-weight: 700;
-    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.live-venue {
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    color: #ccc;
+.live-event-name {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
 }
 
-.btn-ticket {
+.btn-ticket-small {
     display: inline-block;
-    padding: 1rem 3rem;
-    background-color: var(--accent-color);
-    color: #fff;
+    padding: 0.8rem 2rem;
+    background-color: var(--green-accent);
+    color: #050505;
     text-decoration: none;
     font-family: var(--font-main);
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.btn-ticket:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(214, 51, 255, 0.4);
-}
-
-/* Gallery Section */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
+    transition: all 0.3s;
     border-radius: 4px;
-    filter: grayscale(100%);
-    transition: filter 0.5s;
+    flex-shrink: 0;
+    align-self: flex-start;
+    box-shadow: 0 0 20px rgba(80, 227, 194, 0.3);
 }
 
-.gallery-item img:hover {
-    filter: grayscale(0%);
+.btn-ticket-small:hover {
+    background-color: #ffffff;
+    color: #050505;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 25px rgba(80, 227, 194, 0.6);
+}
+
+.btn-soldout {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.4);
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* News Section */
+.news-section {
+    background: linear-gradient(180deg, rgba(167, 60, 180, 0.15) 0%, rgba(5, 5, 5, 0) 100%);
+}
+
+.news-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.news-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    transition: all 0.3s;
+}
+
+.news-item:hover {
+    padding-left: 1rem;
+}
+
+.news-date-large {
+    font-family: var(--font-main);
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    min-width: 200px;
+    flex-shrink: 0;
+}
+
+.news-content {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding-top: 0.5rem;
 }
 
 /* About Section */
@@ -419,30 +500,41 @@ body {
 .contact-section {
     text-align: center;
     justify-content: center;
+    background: linear-gradient(180deg, rgba(5, 5, 5, 0) 0%, rgba(167, 60, 180, 0.1) 100%);
 }
 
-.social-links {
+.social-icons {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin-top: 3rem;
 }
 
-.social-link {
-    display: inline-block;
-    padding: 1rem 2rem;
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
     color: var(--text-color);
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     transition: all 0.3s;
 }
 
-.social-link:hover {
+.social-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.social-icon:hover {
     background-color: var(--text-color);
     color: var(--bg-color);
     border-color: var(--text-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Footer */
@@ -497,6 +589,47 @@ body {
 
     .about-content {
         font-size: 1.1rem;
+    }
+
+    .live-item,
+    .news-item {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    .live-date-large,
+    .news-date-large {
+        font-size: 1.8rem;
+        min-width: auto;
+    }
+
+    .live-venue-name {
+        font-size: 1.1rem;
+    }
+
+    .live-event-name {
+        font-size: 0.9rem;
+    }
+
+    .btn-ticket-small,
+    .btn-soldout {
+        width: 100%;
+        text-align: center;
+    }
+
+    .social-icons {
+        gap: 1.5rem;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-icon svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
